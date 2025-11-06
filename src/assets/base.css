@@ -1,0 +1,65 @@
+/* color palette from <https://github.com/vuejs/theme> */
+:root {
+  --dark: rgb(7, 7, 36);
+  --color-text: #fff;
+  --header-h: 100px;
+
+  --planet-mercury: #DEF4FC;
+  --planet-venus:   #F7CC7F;
+  --planet-earth:   #545BFE;
+  --planet-mars:    #FF6A45;
+  --planet-jupiter: #ECAD7A;
+  --planet-saturn:  #FCCB6B;
+  --planet-uranus:  #65F0D5;
+  --planet-neptune: #497EFA;
+
+
+}
+[data-planet="mercury"] { --planet-color: var(--planet-mercury); }
+[data-planet="venus"]   { --planet-color: var(--planet-venus); }
+[data-planet="earth"]   { --planet-color: var(--planet-earth); }
+[data-planet="mars"]    { --planet-color: var(--planet-mars); }
+[data-planet="jupiter"] { --planet-color: var(--planet-jupiter); }
+[data-planet="saturn"]  { --planet-color: var(--planet-saturn); }
+[data-planet="uranus"]  { --planet-color: var(--planet-uranus); }
+[data-planet="neptune"] { --planet-color: var(--planet-neptune); }
+/* semantic color variables for this project */
+:root {
+  --color-background: var(--dark);
+  --section-gap: 160px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: var(--dark);
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  font-weight: normal;
+}
+
+
+
+body {
+  min-height: 100vh;
+  color: var(--color-text);
+  background: var(--color-background);
+  transition:
+    color 0.5s,
+    background-color 0.5s;
+  line-height: 1.6;
+  font-family: 'League Spartan', sans-serif;
+  font-size: 15px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2 {
+  font-family: 'Antonio', sans-serif;
+}

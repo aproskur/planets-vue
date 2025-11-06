@@ -1,0 +1,11 @@
+@import './base.css';
+
+
+@media (min-width: 1024px) {
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;   
+    justify-content: flex-start;
+  }
+}
