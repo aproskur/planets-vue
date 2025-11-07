@@ -417,7 +417,7 @@ const planetSize = computed(() => {
   }
 
   .planet-info__stat dd {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 }
 </style>
