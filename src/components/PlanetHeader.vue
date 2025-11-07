@@ -128,6 +128,8 @@ onBeforeUnmount(() => {
     bottom: 0;
     display: flex;
     background: var(--dark);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 
     opacity: 0;
     visibility: hidden;
