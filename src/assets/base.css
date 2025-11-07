@@ -53,6 +53,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+body.nav-lock {
+  overflow: hidden;
+  touch-action: none;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   body {
     transition:

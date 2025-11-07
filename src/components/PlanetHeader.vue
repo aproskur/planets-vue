@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, watch, onBeforeUnmount } from 'vue'
 import { storeToRefs } from 'pinia'
 import { usePlanetStore } from '@/stores/planets'
 
@@ -9,6 +9,19 @@ const isOpen = ref(false)
 const toggle = () => {
     isOpen.value = !isOpen.value
 }
+
+const toggleBodyScroll = (locked) => {
+    if (typeof document === 'undefined') return
+    document.body.classList.toggle('nav-lock', locked)
+}
+
+watch(isOpen, (open) => {
+    toggleBodyScroll(open)
+})
+
+onBeforeUnmount(() => {
+    toggleBodyScroll(false)
+})
 </script>
 
 <template>

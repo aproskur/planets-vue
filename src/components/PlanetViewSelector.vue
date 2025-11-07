@@ -104,6 +104,8 @@ const items = [
     border: 1px solid rgba(255,255,255,0.25);
     border-bottom: 1px solid rgba(255,255,255,0.25); 
     background: transparent;
+    letter-spacing: 2.57px;
+    font-weight: 600;
   }
 
 
@@ -119,7 +121,7 @@ const items = [
   .view-btn.active {
     background: var(--accent, #EDA249);
     border-color: var(--accent, #EDA249);
-    color: #0b0d17;
+    color: #fff;
     border-bottom-color: var(--accent, #EDA249);
   }
 }
