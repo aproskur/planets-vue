@@ -235,7 +235,7 @@ const planetSize = computed(() => {
   position: absolute;
   width: 58%;
   max-width: 140px;
-  bottom: -12%;
+  bottom: -50%;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -244,6 +244,7 @@ const planetSize = computed(() => {
   display: grid;
   gap: 16px;
   grid-area: summary;
+  margin-top: 5rem;
 }
 
 .planet-info__name {
@@ -303,10 +304,11 @@ const planetSize = computed(() => {
 }
 
 .planet-info__stat dd {
+  font-family: "Antonio", sans-serif;
   margin: 0;
   font-size: 1.5rem;
   font-weight: 700;
-  letter-spacing: 1px;
+  letter-spacing: 1px; 
 }
 
 .planet-info--empty {
@@ -331,13 +333,14 @@ const planetSize = computed(() => {
     width: 100%;
   }
 
+
   .planet-info__hero {
     grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
     grid-template-areas:
-      "visual summary"
-      "visual selector";
+      "visual visual"
+      "summary selector";
     column-gap: clamp(32px, 6vw, 72px);
-    row-gap: 16px;
+    row-gap: 5rem;
     align-items: center;
   }
 
@@ -348,6 +351,7 @@ const planetSize = computed(() => {
 
   .planet-info__summary {
     gap: 20px;
+    margin-top: 1rem;
   }
 
   .planet-info__name {
@@ -364,12 +368,20 @@ const planetSize = computed(() => {
   }
 
   .planet-info__stats {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 16px;
   }
 
   .planet-info__stat {
     padding: 20px 24px;
+  }
+
+  .planet-info__stat dt {
+    font-size: 0.6rem;
+  }
+
+   .planet-info__stat dd {
+    font-size: 1.25rem;
   }
 }
 
@@ -384,6 +396,7 @@ const planetSize = computed(() => {
       "visual summary"
       "visual selector";
     column-gap: clamp(48px, 8vw, 96px);
+    row-gap: 1.5rem;
   }
 
   .planet-info__visual {
@@ -399,9 +412,12 @@ const planetSize = computed(() => {
     padding: 24px 28px;
   }
 
+   .planet-info__stat dt {
+    font-size: .75rem;
+  }
+
   .planet-info__stat dd {
     font-size: 2rem;
-    font-family: "Antonio", sans-serif;
   }
 }
 </style>

@@ -1,8 +1,10 @@
 <script setup>
-import { usePlanetStore } from '@/stores/planets'
 import { ref } from 'vue'
-const store = usePlanetStore() 
-const names = store.names
+import { storeToRefs } from 'pinia'
+import { usePlanetStore } from '@/stores/planets'
+
+const store = usePlanetStore()
+const { names } = storeToRefs(store)
 const isOpen = ref(false)
 const toggle = () => {
     isOpen.value = !isOpen.value
@@ -13,40 +15,37 @@ const toggle = () => {
     <header class="nav">
         <div class="nav__bar">
             <h1 class="nav__brand">the planets</h1>
-          <nav class="nav-desktop">
-                <ul>
-                    <li v-for="planet in names"
-                        :key="planet"
-                        :data-planet="planet.toLowerCase()">
-                    <RouterLink
-                        :to="{ name: 'planet', params: { name: planet.toLowerCase() } }"
-                        v-slot="{ href, navigate, isActive }"
-                    >
-                        <a :href="href" @click="navigate" :class="['nav-link', { active: isActive }]">
-                        {{ planet }}
-                        </a>
-                    </RouterLink>
-                    </li>
-                </ul>
+            <nav class="nav-desktop">
+                    <ul>
+                        <li v-for="planet in names"
+                            :key="planet"
+                            :data-planet="planet.toLowerCase()">
+                        <RouterLink
+                            :to="{ name: 'planet', params: { name: planet.toLowerCase() } }"
+                            v-slot="{ href, navigate, isActive }"
+                        >
+                            <a :href="href" @click="navigate" :class="['nav-link', { active: isActive }]">
+                            {{ planet }}
+                            </a>
+                        </RouterLink>
+                        </li>
+                    </ul>
             </nav>
-
-
-            <button class="nav__toggle burger"
-                    @click="toggle"
-                    aria-label="Toggle menu"
-                    :aria-expanded="isOpen"
-                    aria-controls="mobile-menu"
-            >
-            <span></span>
-        </button>
+                <button
+                        class="nav__toggle burger"
+                        :class="{ 'is-active': isOpen }"
+                        @click="toggle"
+                        aria-label="Toggle menu"
+                        :aria-expanded="isOpen"
+                        aria-controls="mobile-menu"
+                >
+                    <span></span>
+                </button>
         </div>
-        <!-- desktop nav -->
-        <nav>
 
-        </nav>
 
-        <!-- TODO mobile nav -->
          <nav class="nav-mobile"
+             id="mobile-menu"
              :class="{ 'nav-mobile--open': isOpen }"
          >
             <ul>
@@ -221,26 +220,53 @@ const toggle = () => {
     list-style: none;
     text-transform: uppercase;
 }
-.nav-link.active {
-  position: relative;
-  border-top: 4px solid var(--planet-color);
-  padding-top: 1.82rem;
-  opacity: 1;
+
+nav {
+    margin-top: 1rem;
 }
 
 .nav-desktop ul li a {
     all: unset;
 }
 
-
 @media (min-width: 768px){
-        .nav__toggle {
+     .nav__toggle {
             display: none
         }
 
-        .nav-desktop {
-            display: flex;
-        }
+    .nav__bar {
+        flex-direction: column;
     }
+
+      .nav-desktop {
+            display: flex;
+            
+        }
+
+        .nav-link.active {
+    border-top: none;             
+    color: var(--planet-color);    
+    opacity: 1;                    
+  }
+
+}
+
+
+@media (min-width: 1000px){
+    .nav__bar {
+        flex-direction: row;     
+    }
+
+    .nav-link.active {
+  position: relative;
+  border-top: 4px solid var(--planet-color);
+  padding-top: 1.82rem;
+  opacity: 1;
+}
+
+nav {
+    margin-top: 0;
+}
+}
     
 </style>
