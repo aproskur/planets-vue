@@ -73,6 +73,7 @@ const toggle = () => {
         padding: 1rem 1rem;
         justify-content: space-between;
         border-bottom: 1px solid rgba(56, 56, 79, 0.5);
+        z-index: 200;
         
     }
 
@@ -100,9 +101,11 @@ const toggle = () => {
     .nav-mobile {
     position: fixed;
     width: 100%;
-    z-index: 10;
-    top: 100px;
+    z-index: 1000;
+    top: var(--header-h, 100px);
     left: 0;
+    right: 0;
+    bottom: 0;
     display: flex;
     background: var(--dark);
 
@@ -119,6 +122,11 @@ const toggle = () => {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
+}
+
+.nav-mobile ul,
+.nav-mobile ul li {
+  background: var(--dark); 
 }
 
     .nav-mobile ul {
@@ -171,7 +179,6 @@ const toggle = () => {
   justify-content: center;
 }
 
-/* middle bar */
 .burger span {
   position: absolute;
   width: 100%;
@@ -181,7 +188,6 @@ const toggle = () => {
   transition: all 0.3s ease;
 }
 
-/* top & bottom bars via pseudo-elements */
 .burger span::before,
 .burger span::after {
   content: '';
@@ -201,7 +207,6 @@ const toggle = () => {
   transform: translateY(8px);
 }
 
-/* "open" state */
 .burger.is-active span {
   background-color: transparent;
 }

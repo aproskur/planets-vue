@@ -4,11 +4,11 @@ import PlanetHeader from './components/PlanetHeader.vue';
 </script>
 
 <template>
-  <header>
+  <section>
     <div class="wrapper">
       <PlanetHeader></PlanetHeader>
     </div>
-  </header>
+  </section>
 
   <RouterView />
 </template>
