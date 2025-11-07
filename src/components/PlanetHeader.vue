@@ -15,7 +15,11 @@ const toggle = () => {
     <header class="nav">
         <div class="nav__bar">
             <h1 class="nav__brand">the planets</h1>
-            <nav class="nav-desktop">
+            <nav
+                class="nav-desktop"
+                aria-labelledby="planet-nav-desktop-label"
+            >
+                    <span id="planet-nav-desktop-label" class="sr-only">Planet navigation desktop</span>
                     <ul>
                         <li v-for="planet in names"
                             :key="planet"
@@ -45,9 +49,11 @@ const toggle = () => {
 
 
          <nav class="nav-mobile"
+             aria-labelledby="planet-nav-mobile-label"
              id="mobile-menu"
              :class="{ 'nav-mobile--open': isOpen }"
          >
+            <span id="planet-nav-mobile-label" class="sr-only">Planet navigation mobile</span>
             <ul>
                 <li v-for="planet in names" :key="planet">
                     <RouterLink
@@ -232,6 +238,18 @@ nav {
 
 .nav-desktop ul li a {
     all: unset;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
 }
 
 @media (min-width: 768px){
