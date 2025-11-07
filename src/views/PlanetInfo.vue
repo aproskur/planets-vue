@@ -107,7 +107,7 @@ const planetSize = computed(() => {
 </script>
 
 <template>
-  <main v-if="planet" class="planet-info">
+      <main v-if="planet" class="planet-info" :data-planet="planet.name?.toLowerCase()">
     <div class="planet-info__selector planet-info__selector--mobile">
       <PlanetViewSelector
         v-model="currentView"
@@ -179,6 +179,7 @@ const planetSize = computed(() => {
   <main v-else class="planet-info planet-info--empty">
     <p>Planet data not found.</p>
   </main>
+
 </template>
 
 <style scoped>
@@ -400,8 +401,16 @@ const planetSize = computed(() => {
   }
 
   .planet-info__visual {
-    width: calc(var(--planet-size, 150px) * 1.6);
+    width: calc(var(--planet-size, 150px) * 2.5);
   }
+
+  .planet-info__geology {
+  bottom: -20%;
+}
+
+  .planet-info[data-planet="jupiter"] .planet-info__geology { bottom: 2%; }
+  .planet-info[data-planet="saturn"] .planet-info__geology { bottom: -4%; }
+
 
   .planet-info__stats {
     grid-template-columns: repeat(4, minmax(0, 1fr));
