@@ -77,7 +77,7 @@ const items = [
 
 /* ========== DESKTOP (≥768px) ========== */
 /* Desktop: vertical stack with numbers + full labels */
-@media (min-width: 768px) {
+@media (min-width: 48em) {
   .selector {
     grid-area: selector;     
     justify-self: stretch;   

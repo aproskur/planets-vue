@@ -3,6 +3,8 @@
   --dark: rgb(7, 7, 36);
   --color-text: #fff;
   --header-h: 100px;
+  --color-background: var(--dark);
+  --section-gap: 160px;
 
   --planet-mercury: #DEF4FC;
   --planet-venus:   #F7CC7F;
@@ -23,12 +25,6 @@
 [data-planet="saturn"]  { --planet-color: var(--planet-saturn); }
 [data-planet="uranus"]  { --planet-color: var(--planet-uranus); }
 [data-planet="neptune"] { --planet-color: var(--planet-neptune); }
-/* semantic color variables for this project */
-:root {
-  --color-background: var(--dark);
-  --section-gap: 160px;
-}
-
 @media (prefers-color-scheme: dark) {
   :root {
     --color-background: var(--dark);
@@ -49,15 +45,20 @@ body {
   min-height: 100vh;
   color: var(--color-text);
   background: var(--color-background);
-  transition:
-    color 0.5s,
-    background-color 0.5s;
+  transition: none;
   line-height: 1.6;
   font-family: 'League Spartan', sans-serif;
-  font-size: 15px;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  body {
+    transition:
+      color 0.5s,
+      background-color 0.5s;
+  }
 }
 
 h1, h2 {

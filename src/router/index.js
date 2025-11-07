@@ -1,6 +1,5 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import { createWebHashHistory } from 'vue-router'
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -9,7 +8,7 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: HomeView,
-      redirect: 'planet/earth'
+      redirect: { name: 'planet', params: { name: 'earth' } },
     },
     {
       path: '/planet/:name',

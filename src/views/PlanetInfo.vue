@@ -276,7 +276,7 @@ const planetSize = computed(() => {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  color: rgba(255, 255, 255, 0.85);
+  color: gray;
   font-weight: 700;
   text-decoration: underline;
   text-underline-offset: 4px;
@@ -317,7 +317,7 @@ const planetSize = computed(() => {
   text-align: center;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 48em) {
   .planet-info {
     padding: calc(var(--header-h, 96px) + 48px) clamp(32px, 6vw, 64px) 96px;
     gap: 64px;
@@ -385,7 +385,7 @@ const planetSize = computed(() => {
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 64em) {
   .planet-info {
     gap: 72px;
   }
@@ -417,7 +417,7 @@ const planetSize = computed(() => {
   }
 
   .planet-info__stat dd {
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
 }
 </style>

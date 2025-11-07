@@ -80,8 +80,9 @@ const toggle = () => {
         justify-content: space-between;
         border-bottom: 1px solid rgba(56, 56, 79, 0.5);
         z-index: 200;
-        
-    }
+        background: var(--dark) no-repeat url("/assets/background-stars.svg") top center;   
+        background-size: cover;
+    }   
 
     .nav-desktop {
         display: none;
@@ -252,7 +253,7 @@ nav {
     border: 0;
 }
 
-@media (min-width: 768px){
+@media (min-width: 48em){
      .nav__toggle {
             display: none
         }
@@ -275,7 +276,7 @@ nav {
 }
 
 
-@media (min-width: 1000px){
+@media (min-width: 62.5em){
     .nav__bar {
         flex-direction: row;     
     }
